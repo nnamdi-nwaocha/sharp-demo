@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Manipulation with NestJS and Sharp</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      #output-container {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+      }
+      img {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+        border: 1px solid #ddd;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Manipulation with NestJS and Sharp</h1>
+    <form id="imageForm">
+      <div class="form-group">
+        <label for="fileInput">Upload Image:</label>
+        <input
+          type="file"
+          id="fileInput"
+          name="file"
+          accept="image/*"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="technique">Choose Manipulation Technique:</label>
+        <select id="technique" name="technique" required>
+          <option value="blur">Blur</option>
+          <option value="rotate">Rotate</option>
+          <option value="tint">Tint</option>
+          <option value="grayscale">Grayscale</option>
+          <option value="flip">Flip</option>
+          <option value="flop">Flop</option>
+          <option value="crop">Crop</option>
+          <option value="createComposite">Create Composite Image</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="format">Choose Output Format:</label>
+        <select id="format" name="format" required>
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+          <option value="avif">AVIF</option>
+          <option value="svg">SVG</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="output-container" style="display: none">
+      <div>
+        <h3>Original Image</h3>
+        <img
+          id="originalImage"
+          width="300"
+          height="300"
+          src="#"
+          alt="Original Image"
+        />
+      </div>
+      <div>
+        <h3>Manipulated Image</h3>
+        <img id="manipulatedImage" src="#" alt="Manipulated Image" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
